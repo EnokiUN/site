@@ -1,0 +1,114 @@
+---
+import { Icon } from "astro-icon";
+import Main from "../layouts/Main.astro";
+import Card from "../components/Card.astro";
+---
+
+<Main title="Enoki - Home">
+	<header>
+		<div>
+			<img src="./enoki.png" alt="Avatar" class="avatar" />
+			<h1><img src="./wave.png" class="wave" /> Hey there, I'm <span class="name">Enoki</span>!</h1>
+			<p>An open source software developer and freelancer.</p>
+			<Icon name="bytesize:arrow-bottom" color="black" width="3em"/>
+		</div>
+	</header>
+	<div class = "content">
+	    <Card title="About Me" icon="noto-v1:artist-palette" icon-color="#222255">
+			I'm a high school student who loves to program and actively works on new projects, I also love collaborating  with other programmers and contributing to open source projects.
+		</Card>
+	    <Card title="Skills" icon="jam:tools" icon-color="#222255">
+			I have a lot of experience with making backends, games and discord bots, I am also quite proficient at making websites.<br>
+			As for the specifics I'm really good at Rust, Python, TypeScript (or JavaScript) and Godot.<br>
+			I've also made a Discord API wrapper collection in 10+ different langauges so I'm confident about my ability to use different tools and langauges.
+		</Card>
+	    <Card title="Projects" icon="akar-icons:github-fill" icon-color="black" href="https://github.com/EnokiUN">
+			I've worked on a plethora of projects in several langauges and you can find them on my <a href="https://github.com/EnokiUN">GitHub page</a>, here are some highlights:<br>
+			<Card title="Voltage" href="https://github.com/EnokiUN/Voltage">
+				A simple, asynchronous python wrapper for the <a href="https://revolt.chat">Revolt</a> API.
+			</Card>
+			<Card title="Eludris" href="https://github.com/Eludris/eludris">
+				A Free & Open Source federated social media platform with End-to-End Encryption.
+			</Card>
+		</Card>
+	</div>
+</Layout>
+
+<style>
+	header {
+		background: linear-gradient(30deg, #1000aa, #ff50ee);
+	}
+
+	header > div {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		padding: 2em 1em;
+		height: 100vh;
+		color: #f0f0f0;
+		animation: appear 2s ease-in-out;
+	}
+
+	@keyframes appear {
+		0% {
+			opacity: 0%;
+			filter: blur(1em);
+		}
+		100% {
+			opacity: 100%;
+			filter: blur(0em);
+		}
+	}
+
+	header > div > .avatar {
+		width: 8em;
+		border-radius: 100%;
+		box-shadow: 0em 0em 5em -1em #1000aa;
+		border: 2px solid #ffffff;
+	}
+
+	.wave {
+		width: 1em;
+	}
+
+	header > div > h1 {
+		font-size: 2em;
+		margin: 0;
+	}
+
+	header > div > [astro-icon] {
+		margin: 5em;
+	}
+
+	.name {
+		font-weight: 900;
+		border-radius: 0.4rem;
+		color: #ff6090;
+		animation: pulse 3s ease-in-out;
+	}
+
+	@keyframes pulse {
+		0%, 75% {
+			color: inherit;
+		}
+		100% {
+			color: #ff6090;
+		}
+	}
+
+	.content {
+		padding: 0.5em;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-items: flex-start;
+		gap: 1em 0em;
+	}
+
+	a {
+		text-decoration: none;
+		color: #aaeebb;
+	}
+</style>

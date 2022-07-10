@@ -1,0 +1,58 @@
+---
+import { Icon } from 'astro-icon';
+
+export interface Props {
+	title: string;
+	href: string;
+	icon: string;
+	"icon-color": string;
+}
+const { href, title, icon, "icon-color": icon_color } = Astro.props;
+---
+
+<div class="card">
+	<div class="inner">
+		<a href={href}>
+			<h2>
+				{icon && <Icon name={icon} color={icon_color} />} {title}
+			</h2>
+		</a>
+		<slot />
+	</div>
+<div>
+<style>
+	:root {
+		--card-bg-color: #4455aa;
+		--text-color: #eeeeee;
+	}
+
+	[astro-icon] {
+		width: var(--font-size-base);
+	}
+
+	.card {
+		max-width: 21em;
+		margin: 0.5em 1em;
+		line-height: 1.75em;
+		padding: 3px;
+		border-radius: 0.5em;
+		color: var(--text-color);
+		background-color: var(--card-bg-color);
+		box-shadow: 0.5em 0.5em 1em -0.5em #4455aa;
+	}
+
+	.inner > a {
+		text-decoration: none;
+		color: var(--text-color);
+	}
+
+	.inner {
+		border-radius: inherit;
+		border: 1px dashed #aaaaaa;
+		padding: 1em 1.3em;
+	}
+
+	h2 {
+		margin: 0;
+	}
+</style>
