@@ -11,6 +11,13 @@ const { title } = Astro.props as Props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		<meta property="og:title" content="Ensite" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="/" />
+		<meta property="og:image" content="./enoki.png" />
+		<meta property="og:description" content="Enoki's personal website" />
+		<meta name="theme-color" content="#000516" />
+		<meta name="twitter:card" content="summary_large_image" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<title>{title}</title>
 	</head>

@@ -10,10 +10,10 @@ import Card from "../components/Card.astro";
 			<img src="./enoki.png" alt="Avatar" class="avatar" />
 			<h1><img src="./wave.png" class="wave" /> Hey there, I'm <span class="name">Enoki</span>!</h1>
 			<p>An open source software developer and freelancer.</p>
-			<Icon name="bytesize:arrow-bottom" color="black" width="3em"/>
+			<a href="#content"><Icon name="bytesize:arrow-bottom" color="black" width="3em"/></a>
 		</div>
 	</header>
-	<div class = "content">
+	<div id="content">
 	    <Card title="About Me" icon="noto-v1:artist-palette" icon-color="#222255">
 			I'm a high school student who loves to program and actively works on new projects, I also love collaborating  with other programmers and contributing to open source projects.
 		</Card>
@@ -98,7 +98,8 @@ import Card from "../components/Card.astro";
 		}
 	}
 
-	.content {
+	#content {
+		scroll-behavior: smooth;
 		padding: 0.5em;
 		display: flex;
 		flex-flow: row wrap;
