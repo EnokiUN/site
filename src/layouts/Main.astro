@@ -1,9 +1,15 @@
 ---
+import { Icon } from "astro-icon";
+
 export interface Props {
 	title: string;
 }
 
 const { title } = Astro.props as Props;
+
+const stars = fetch('https://api.github.com/repos/EnokiUN/site')
+    .then(res => res.json())
+	.then(res => res.stargazers_count);
 ---
 
 <!DOCTYPE html>
@@ -14,7 +20,7 @@ const { title } = Astro.props as Props;
 		<meta property="og:title" content="Ensite" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="/" />
-		<meta property="og:image" content="./enoki.png" />
+		<meta property="og:image" content="/enoki.png" />
 		<meta property="og:description" content="Enoki's personal website" />
 		<meta name="theme-color" content="#000516" />
 		<meta name="twitter:card" content="summary_large_image" />
@@ -23,6 +29,9 @@ const { title } = Astro.props as Props;
 	</head>
 	<body>
 		<slot />
+		<footer>
+		    <p>This website is on <a href="https://github.com/EnokiUN/site">GitHub <Icon name="akar-icons:github-fill" color=white /></a> | <span style="color: #cccc55;">{stars}</span> stars<p>
+		</footer>
 	</body>
 </html>
 <style>
@@ -47,6 +56,22 @@ const { title } = Astro.props as Props;
 		margin: 0;
 	}
 
+	footer {
+		padding: 0.5em 0.3em;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		gap: 0.5em;
+		color: #ffffff;
+		background-color: #000000;
+	}
+
+	footer > p > a > [astro-icon] {
+		width: var(--font-size-base);
+		position: relative;
+		top: 0.1em;
+	}
+
 	:global(h1) {
 		font-size: var(--font-size-xl);
 	}
@@ -55,8 +80,8 @@ const { title } = Astro.props as Props;
 		font-size: var(--font-size-lg);
 	}
 
-	:global(code) {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
+	:global(a) {
+		text-decoration: none;
+		color: #aaeebb;
 	}
 </style>

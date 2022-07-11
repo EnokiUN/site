@@ -27,11 +27,13 @@ const { href, title, icon, "icon-color": icon_color } = Astro.props;
 	}
 
 	[astro-icon] {
-		width: var(--font-size-base);
+		width: calc(var(--font-size-base) + 0.5em);
+		position: relative;
+		top: 0.2em;
+		margin-right: 0.2em;
 	}
 
 	.card {
-		max-width: 21em;
 		margin: 0.5em 1em;
 		line-height: 1.75em;
 		padding: 3px;
