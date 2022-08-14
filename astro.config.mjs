@@ -6,5 +6,8 @@ export default defineConfig({
     ssr: {
       external: ["svgo"]
     }
-  }
+  },
+  markdown: {
+    syntaxHighlight: 'prism',
+  },
 });

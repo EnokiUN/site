@@ -1,0 +1,31 @@
+---
+import Main from './Main.astro';
+import Card from '../components/Card.astro';
+
+export interface Props {
+  content: {
+    title: string;
+	description: string;
+	publishDate: string;
+    }
+}
+
+const { content: { title, description, publishDate } } = Astro.props;
+---
+
+<Main title={title}>
+  <Card title={title}>
+    <p>{description} | published <time>{publishDate}</time></p>
+    <slot />
+  </Card>
+</Main>
+
+<style>
+  :global(html) {
+    color: #eeeeee;
+  }
+
+  :global(h1) {
+    line-height: 1em;
+  }
+</style>
